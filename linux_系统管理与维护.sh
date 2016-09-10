@@ -10,4 +10,5 @@
          find / -mtime n              # n天前的文件，特指第n天的那一天
          find / -mtime +n             # n天以前的文件，指的是n天前
          find / -mtime -n             # n天以内的文件，指的是n天内
-         find / -user username        # 按文件所有者查找 
+         find / -user username        # 按文件所有者查找
+         find / -siza file            # 按文件大小查找 
