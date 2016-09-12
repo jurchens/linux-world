@@ -13,4 +13,8 @@
          find / -user username        # 按文件所有者查找
          find / -siza file            # 按文件大小查找 
 2.进程管理
-    ps -efa                           #查看所有进程
+    ps -efa                           # 查看所有进程
+    kill -9 PID                       # 强制终止某个进程
+    killall http*                     # 杀掉http所有进程的服务，有一定的危险性
+    ctrl + z                          # 将前台运行的程序放到后台运行
+    jobs                              # 查看后台运行的程序
