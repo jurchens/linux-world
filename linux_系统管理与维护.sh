@@ -23,6 +23,7 @@
 
 git管理
     sudo apt-get install git          # 安装git
+    sudo yum install git-all git      # fedora or centos 安装git
     git status                        # 时时查看当前仓库的状态
     git diff                          # 查看修改的内容
     git log                           # 查看日志
