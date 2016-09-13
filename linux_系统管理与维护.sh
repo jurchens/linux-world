@@ -76,3 +76,4 @@ echo "this result is $result"
 
   
 }
+注：因bash 只支持整数型运算，如果要进行字符串和浮点型运算，需要用系统的bc计算器
