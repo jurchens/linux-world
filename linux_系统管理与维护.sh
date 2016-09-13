@@ -14,11 +14,36 @@
          find / -siza file            # 按文件大小查找 
 2.进程管理
     ps -efa                           # 查看所有进程
+    ps -aux                           # 查看所有进程
+    netstat -anlp |grep port          # 查看制定端口
     kill -9 PID                       # 强制终止某个进程
     killall http*                     # 杀掉http所有进程的服务，有一定的危险性
     ctrl + z                          # 将前台运行的程序放到后台运行
     jobs                              # 查看后台运行的程序
- 
+    fg job工作号                      # 将后台移到前台
+    
+3.清空屏幕               
+    clear                             # 清空屏幕
+    reset                             # 初始化屏幕
+4.随机密码和加密
+    mkpasswd                          # 随机生成密码
+    yum install expect                # 安装expect
+    mkpasswd -l                       # 密码长度，默认9
+    mkpasswd -d                       # 数字个数，默认2
+    mkpasswd -c                       # 小写字母，默认2
+    mkpasswd -C                       # 大写字母，默认2
+    mkpasswd -s                       # 特殊字符，默认1
+5. md5 加密
+    echo -n abcde | md5sum            # 字符串abcde 用md5加密
+6.时间和日期
+    cal                               # 查看日历
+    date                              # 查看日期和时间
+    date -s yyyymmdd                  # 设定日期
+    date -s hh:mm:ss                  # 设定时间
+    date -d "7 days ago" +%Y%m%d      # 7天前的日期
+    date -d "5 minute ago" +%H:%M     # 5分钟前的时间
+    date -d "1 month ago" +%Y%m%d     # 1个月前的时间
+    date +%Y-%m-%d_%T                 # 时间戳
 
 
 git管理
