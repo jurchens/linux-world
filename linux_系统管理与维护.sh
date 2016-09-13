@@ -56,3 +56,23 @@ git管理
     git remote -v                                             # 查看远程仓库的详细信息
     git checkout -b dev origin/dev                            # 常见远程仓库的dev 到本地
     git branch --set-upstream dev origin/dev                  # 建立本地仓库的分支和远程仓库分支的关联
+
+
+
+
+
+
+函数：
+ 函数输出浮点值实例：
+ #!/bin/bash
+ function db()
+{
+  read -p "Enter a value: " value
+  sum=`echo "scale=2;$value * 2" |bc`
+  echo $sum
+}
+   result=`db`
+echo "this result is $result"
+
+  
+}
