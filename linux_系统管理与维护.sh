@@ -54,6 +54,14 @@
     history                           # 历史默认条数1000
     .bash_history                     # 查看更多的历史纪录，历史纪录文件
      history -c                       # 清除历史纪录
+8.用户管理
+    last                              # 查看登陆过的用户信息
+    who /var/log/wtmp                 # 查看登陆过的用户信息
+    lastlog                           # 用户最后登录时间
+    lastb -a                          # 列出登录系统失败的用户信息
+    /var/log/btmp                     # 登录失败二进制日志记录文件
+   tail -f /var/log/messages          # 查看后10行系统日志
+   tail -f /var/log/secure            # 查看ssh相关日志    
     
       
 
