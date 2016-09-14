@@ -50,7 +50,12 @@
     date -d "5 minute ago" +%H:%M     # 5分钟前的时间
     date -d "1 month ago" +%Y%m%d     # 1个月前的时间
     date +%Y-%m-%d_%T                 # 时间戳
-
+7.日志管理
+    history                           # 历史默认条数1000
+    .bash_history                     # 查看更多的历史纪录，历史纪录文件
+     history -c                       # 清除历史纪录
+    
+      
 
 git管理
     sudo apt-get install git          # 安装git
