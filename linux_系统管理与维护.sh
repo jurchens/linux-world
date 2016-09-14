@@ -62,6 +62,11 @@
     lastlog                           # 用户最后登录时间
     lastb -a                          # 列出登录系统失败的用户信息
     /var/log/btmp                     # 登录失败二进制日志记录文件
+9.selinux
+    sestatus -v                       # 查看selinux 状态
+    getenforce                        # 查看selinux 模式
+    setenforce 0                      # 临时设置宽容模式，permissive
+    setenforce 1                      # 临时设置force模式
     
       
 
