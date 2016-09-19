@@ -91,6 +91,8 @@
   du -h directory                     # 显示目录下所有文件大小
   mount                               # 查看分区挂载情况
   mount -a                            # 使挂载生效
+  mkfs.ext4 /dev/sda1                 # 格式化分区
+  fdisk -l |more                      # 查看磁盘分区状态
 三.系统监控
    sar                                # 查看cpu 状态
    vmstat 1 9                         # 打印系统性能9次/s
