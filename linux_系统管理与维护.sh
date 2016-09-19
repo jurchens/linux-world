@@ -58,6 +58,7 @@
      tail -f /var/log/secure            # 查看ssh相关日志
 8.用户管理
     last                              # 查看登陆过的用户信息
+    lastlog                           # 用户最后登录的时间
     who /var/log/wtmp                 # 查看登陆过的用户信息
     lastlog                           # 用户最后登录时间
     lastb -a                          # 列出登录系统失败的用户信息
@@ -67,6 +68,35 @@
     getenforce                        # 查看selinux 模式
     setenforce 0                      # 临时设置宽容模式，permissive
     setenforce 1                      # 临时设置force模式
+
+
+二. 硬件相关
+1.内存
+  free -m                             # 查看剩余内存
+2.cpu
+  cat /proc/cpuinfo |more             # 查看cpu详细信息
+  cat /proc/cpuinfo |grep "physical id" |sort -u | wc -l    #查看物理cpu 个数
+                                  
+  
+3.服务器
+  dmidecode                           # 查看服务器全面信息
+  dmidecode |grep "Product Name"      # 查看服务器厂商和型号
+  cat /proc/scsi/scsi                 # 查看dell raid 卡信息
+4.网卡
+  ifconfig                            # 查看所有网卡信息
+  vim /etc/sysconfig/network-scripts/ifcfg-eth0 # 编辑网卡信息
+  service network restart &  /etc/init.d/network restart #重启网卡
+5.硬盘
+  df -Th                              # 显示硬盘容量及分区格式
+  du -h directory                     # 显示目录下所有文件大小
+  mount                               # 查看分区挂载情况
+  mount -a                            # 使挂载生效
+三.系统监控
+   sar                                # 查看cpu 状态
+   vmstat 1 9                         # 打印系统性能9次/s
+   ps aux |grep -v USER |sort -nk +4 | tail #显示消耗内存最多的10个进程，按内存使用排序
+    
+
     
       
 
