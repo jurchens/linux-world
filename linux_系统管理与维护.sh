@@ -60,13 +60,33 @@
     users                             # 查看所有登陆用户
     useradd                           # 新建用户
     groupadd                          # 新建组
-    useradd -g mysql mysql            # 新建用户并加入组
+    useradd -g group user             # 新建用户并加入组
+    gpasswd -a user group             # 将用户添加到制定的组
+    gpasswd -d user group             # 将用户从组中删除 
+    useradd -g www -M -s /sbin/nologin www  # 指定组并不允许登陆的用户，但可以使用服务
+    useradd -g www -M -s /sbin/false   www  # 指定组并不允许登陆的用户，false 最为严格
+    usermod -l newname oldname              # 修改用户名，但是家目录名不改变
+    usermod -g user group             # 修改用户所属组
+    usermod -G group user             # 将用户添加到附加组
+    usermod -L user                   # 锁定用户
+    usermod -U user                   # 解锁用户
+    passwd  -l                        # 锁定用户
+    passwd  -u                        # 解锁用户         
     groups                            # 查看组
+    groups user                       # 查看用户所在的组
+    passwd user                       # 修改密码
+    userdel -r                        # 删除用户及家目录
+    chown -R user:group               # 更改用户所属
+    chown -R mysql .                  # 更改所有者
+    chgrp -R mysql .                  # 更改所属组
+    finger                            # 查找用户显示信息
     last                              # 查看登陆过的用户信息
     lastlog                           # 用户最后登录的时间
     who /var/log/wtmp                 # 查看登陆过的用户信息
     lastlog                           # 用户最后登录时间
     lastb -a                          # 列出登录系统失败的用户信息
+    su - user -c " #命令1；.."        # 切换用户执行命令
+    id -u                             # 查看当前用户的uid 号
     /var/log/btmp                     # 登录失败二进制日志记录文件
 9.selinux
     sestatus -v                       # 查看selinux 状态
