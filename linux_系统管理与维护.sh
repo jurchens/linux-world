@@ -1,9 +1,9 @@
-特说明：此文件收集整理并借鉴了雪松、PF等大神的文档，shell实例手册，感谢以上大神！
+＊＊＊＊＊特此说明：此文件收集整理并借鉴了雪松、PF等大神的文档shell实例手册，衷心感谢以上大神的无私奉献！＊＊＊＊＊
 一.系统
 1.查找命令
-   a. which                       #查看执行的命令所在的位置，通常需要查找命令需要在环境变量里，例如/bin/sbin,查询速度较快
-   b. whereis                     # 通常用与查找已安装的程序或命令以及文件手册等，查询速度较快
-   c. locate                      # 类似模糊查询，含有相关字符的都会罗列出来，查询速度略慢
+   a. which                           #查看执行的命令所在的位置，通常需要查找命令需要在环境变量里，例如/bin/sbin,查询速度较快
+   b. whereis                         # 通常用与查找已安装的程序或命令以及文件手册等，查询速度较快
+   c. locate                          # 类似模糊查询，含有相关字符的都会罗列出来，查询速度略慢
    d. find:（查询速度较慢）       
          find / -name file            # 按文件名查找
          find / -type file            # 按文件类型查找
@@ -51,11 +51,11 @@
     date -d "1 month ago" +%Y%m%d     # 1个月前的时间
     date +%Y-%m-%d_%T                 # 时间戳
 7.日志管理
-     history                           # 历史默认条数1000
-     .bash_history                     # 查看更多的历史纪录，历史纪录文件
+     history                          # 历史默认条数1000
+     .bash_history                    # 查看更多的历史纪录，历史纪录文件
      history -c                       # 清除历史纪录
-     tail -f /var/log/messages          # 查看后10行系统日志
-     tail -f /var/log/secure            # 查看ssh相关日志
+     tail -f /var/log/messages        # 查看后10行系统日志
+     tail -f /var/log/secure          # 查看ssh相关日志
 8.用户管理
     last                              # 查看登陆过的用户信息
     lastlog                           # 用户最后登录的时间
@@ -75,7 +75,7 @@
   free -m                             # 查看剩余内存
 2.cpu
   cat /proc/cpuinfo |more             # 查看cpu详细信息
-  cat /proc/cpuinfo |grep "physical id" |sort -u | wc -l    #查看物理cpu 个数
+  cat /proc/cpuinfo |grep "physical id" |sort -u | wc -l      #查看物理cpu 个数
                                   
   
 3.服务器
@@ -84,8 +84,8 @@
   cat /proc/scsi/scsi                 # 查看dell raid 卡信息
 4.网卡
   ifconfig                            # 查看所有网卡信息
-  vim /etc/sysconfig/network-scripts/ifcfg-eth0 # 编辑网卡信息
-  service network restart &  /etc/init.d/network restart #重启网卡
+  vim /etc/sysconfig/network-scripts/ifcfg-eth0                # 编辑网卡信息
+  service network restart &  /etc/init.d/network restart       #重启网卡
 5.硬盘
   df -Th                              # 显示硬盘容量及分区格式
   du -h directory                     # 显示目录下所有文件大小
@@ -96,7 +96,7 @@
 三.系统监控
    sar                                # 查看cpu 状态
    vmstat 1 9                         # 打印系统性能9次/s
-   ps aux |grep -v USER |sort -nk +4 | tail #显示消耗内存最多的10个进程，按内存使用排序
+   ps aux |grep -v USER |sort -nk +4 | tail                    #显示消耗内存最多的10个进程，按内存使用排序
     
 
     
@@ -113,7 +113,7 @@ git管理
     git reflog                        # 记录每一次命令，通常用于查找commit id
     git add file                      # 增加file 到暂存区
     git commit file                   # 提交更改，把暂存区的文件提交到分支
-    git push origin 分支名           # 推送到github远程仓库
+    git push origin 分支名            # 推送到github远程仓库
     git checkout --file               # 把文件在工作区的更改全部撤回
     场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
 
@@ -129,7 +129,6 @@ git管理
     git merge 分支名                                          # 合并分支
     git branch -d dev                                         # 删除分支
     git branch -D dev                                         # 强制删除分支
-    git 解决冲突的方法就是把两个有冲突的分支的内容进行选择或合并，删除多余内容
     git merge --no-ff -m "description" dev                    # 禁用fast forward ,改为普通模式的合并，目的是可以查看分支合并历史
     git stash                                                 # 保存工作现场
     git stash pop                                             # 回到工作现场
@@ -137,7 +136,7 @@ git管理
     git remote -v                                             # 查看远程仓库的详细信息
     git checkout -b dev origin/dev                            # 常见远程仓库的dev 到本地
     git branch --set-upstream dev origin/dev                  # 建立本地仓库的分支和远程仓库分支的关联
-
+    git 解决冲突的方法就是把两个有冲突的分支的内容进行选择或合并，删除多余内容
 
 
 
