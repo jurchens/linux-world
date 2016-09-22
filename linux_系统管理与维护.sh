@@ -118,6 +118,34 @@
   mount -a                            # 使挂载生效
   mkfs.ext4 /dev/sda1                 # 格式化分区
   fdisk -l |more                      # 查看磁盘分区状态
+  fdisk /dev/sda1                     # 分区
+  mkfs -t ext3 /dev/md0               # 格式化分区
+  lsof |grep delete                   # 查看已经被删除的文件，但进程还存活，列出相应进程kill掉，释放磁盘空间
+  kill -9  pid                        # 通过lsof 已删除文件的进程，kill 掉，释放磁盘空间
+  smartctl -H /dev/sda                # 检查磁盘状态
+  smartctl -i /dev/sda                # 显示磁盘信息
+  fsck -y /dev/sda1                   # 修复磁盘，会造成磁盘数据部分丢失的概率
+  hdparm -Tt /dev/md0                 # 测试磁盘读写速度
+  mount -t ngfs-3g /dev/sdb /data/mnt # 挂载ntfs 格式的磁盘
+  mount -t iso9660 /dev/dvd /mnt      # 挂载光盘
+  mount -o loop /data/*.iso /mnt      # 挂载镜像文件
+  mount -a                            # 使挂载生效，一般用于fstab 修改后
+  umount /data/mnt                    # 卸载
+  dd if=/dev/zero of=文件名 bs=1M count=1000  # 创建一个1g 的文件
+  dd if=/dev/zero of=test   bs=2M seek 10000  # 创建一个2T 的文件，不写入磁盘速度和内存相当
+  新硬盘挂载顺序：
+      1.使用fdisk -l |more  找到新硬盘，比如/dev/sdb
+      2.分区：fdisk /dev/sdb 初始化，选择n,进行分区，例如只分一个分区/dev/sdb1
+      3.格式化： mkfs.ext4 /dev/sdb1
+      4.挂载： mount /dev/sdb1  /mnt/data
+      5.修改开机自动挂载
+        vim /etc/fstab
+        添加如下行
+        /dev/sdb1                   /mnt/data    ext4  defaults 0 0
+  
+   
+      
+  umount
 三.系统监控
    sar                                # 查看cpu 状态
    vmstat 1 9                         # 打印系统性能9次/s
