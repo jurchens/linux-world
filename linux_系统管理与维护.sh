@@ -94,7 +94,29 @@
     setenforce 0                      # 临时设置宽容模式，permissive
     setenforce 1                      # 临时设置force模式
 
-
+10.文件管理
+   touch                              # 新建一个文件，若文件存在，则修改时间，文件内容不覆盖
+   touch -t file                      # 指定文件的修改时间
+   ls                                 # 显示文件列表
+   ls -a                              # 显示文件列表，包括隐藏文件
+   ll -a                              # 以纵列表的方式显示，包括隐藏文件
+   rm                                 # 删除文件，提示是否删除
+   rm -f                              # 强制删除
+   rm -rf                             # 递归强制删除
+   enca file                          # 查看文件编码
+   ln s  d                            # 建立硬链接
+   ls -s s d                          # 建立软链接
+   symlinks -r /  | grep '目录'       # 查看系统的软连接
+   readlink -f  /data                 # 查看链接的真实目录
+   head                               # 查看文件前10行
+   tail                               # 查看文件后10行
+   uniq                               # 删除重复的行
+   uniq -c                            # 重复的行出现的次数
+   wc -l                              # 统计行数
+   paste a b                          # 将两个文件合并，并用tab 键隔开
+   paste -d'+' a b                    # 将两个文件合并，并用+ 号隔开
+   more                               # 向下分页
+   less                               # 向上分页 
 二. 硬件相关
 1.内存
   free -m                             # 查看剩余内存
@@ -107,7 +129,7 @@
   dmidecode                           # 查看服务器全面信息
   dmidecode |grep "Product Name"      # 查看服务器厂商和型号
   cat /proc/scsi/scsi                 # 查看dell raid 卡信息
-4.网卡
+4.网络
   ifconfig                            # 查看所有网卡信息
   vim /etc/sysconfig/network-scripts/ifcfg-eth0                # 编辑网卡信息
   service network restart &  /etc/init.d/network restart       #重启网卡
