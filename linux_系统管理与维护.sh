@@ -56,7 +56,12 @@
      history -c                       # 清除历史纪录
      tail -f /var/log/messages        # 查看后10行系统日志
      tail -f /var/log/secure          # 查看ssh相关日志
-8.用户管理
+8.用户和组管理
+    users                             # 查看所有登陆用户
+    useradd                           # 新建用户
+    groupadd                          # 新建组
+    useradd -g mysql mysql            # 新建用户并加入组
+    groups                            # 查看组
     last                              # 查看登陆过的用户信息
     lastlog                           # 用户最后登录的时间
     who /var/log/wtmp                 # 查看登陆过的用户信息
