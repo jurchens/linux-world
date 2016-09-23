@@ -164,10 +164,7 @@
         vim /etc/fstab
         添加如下行
         /dev/sdb1                   /mnt/data    ext4  defaults 0 0
-  
-   
-      
-  umount
+      6.生效挂载：生效挂载
 三.系统监控
    sar                                # 查看cpu 状态
    vmstat 1 9                         # 打印系统性能9次/s
