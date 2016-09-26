@@ -117,6 +117,24 @@
    paste -d'+' a b                    # 将两个文件合并，并用+ 号隔开
    more                               # 向下分页
    less                               # 向上分页 
+   wc -l                              # 查看文件行数
+   cp -R /dir1 /dir2                  # 递归拷贝目录
+   cp filename{,.bak}                 # 快递备份一个文件
+   cp -p a b                          # 保留文件属性
+   cp -f a b                          # 强制覆盖
+11.sort 排序
+   sort　-n                           # 按照数值的大小排序
+   sort  -nr                          # 按数字倒叙
+   sort　-u                           # 过滤重复行
+   sort  -m a.txt c.txt               # 将两个文件内容整合到一起
+12.vim
+    :set nu                           # 显示行号
+    $s/字符1/字符2/g                  # 全部替换
+13.解压缩
+   tar -zxvf   file                   # 解压
+   tar -zcvf   file.gz  file          # 压缩
+   tar -zxvf file   -C 目录           # 解压到指定目录
+   
 二. 硬件相关
 1.内存
   free -m                             # 查看剩余内存
@@ -165,7 +183,20 @@
         添加如下行
         /dev/sdb1                   /mnt/data    ext4  defaults 0 0
       6.生效挂载：生效挂载
-三.系统监控
+
+三.软件
+
+1.软件安装   
+   rpm -qa | grep 软件包或服务        # 查看系统是否安装相关软件或服务
+   rpm -ivh                           # rpm 安装
+   rpm -e                             # rpm 卸载
+   rpm -e  --nodeps                   # rpm 强制卸载
+   yum list                           # 查找所有列表
+   yum install -y                     # yum 自动安装
+   yum -y update                      # 升级制定软件包
+   yum search                         # 搜索软件包
+2.配置yum 
+四.系统监控
    sar                                # 查看cpu 状态
    vmstat 1 9                         # 打印系统性能9次/s
    ps aux |grep -v USER |sort -nk +4 | tail                    #显示消耗内存最多的10个进程，按内存使用排序
