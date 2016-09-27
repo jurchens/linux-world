@@ -197,9 +197,12 @@
    yum search                         # 搜索软件包
 2.配置yum 
 四.系统监控
+   top                                # 查看当前系统运行状态，包括cpu负载 ,mem使用，及进程等，如果cpu是多核，按1具体核数及显示情况
+   uptime                             # 查看系统运行时间 
    sar                                # 查看cpu 状态
    vmstat 1 9                         # 打印系统性能9次/s
    ps aux |grep -v USER |sort -nk +4 | tail                    #显示消耗内存最多的10个进程，按内存使用排序
+   iftop                              # 监控网络流量输入输出信息
     
 
     
