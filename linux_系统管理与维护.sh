@@ -195,7 +195,17 @@
    yum install -y                     # yum 自动安装
    yum -y update                      # 升级制定软件包
    yum search                         # 搜索软件包
-2.配置yum 
+2.配置yum源
+  例如：配置163 yum 源
+  1.访问 mirrors.163.com
+  2.以 centos 为例，点开右侧的centos 使用帮助
+  3.选择相应的版本repo下载
+  4.备份原有的yum 源： mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+  5.生成缓存： yum clean all   yum makecache
+  6.完成 
+  
+  
+   
 四.系统监控
    top                                # 查看当前系统运行状态，包括cpu负载 ,mem使用，及进程等，如果cpu是多核，按1具体核数及显示情况
    uptime                             # 查看系统运行时间 
