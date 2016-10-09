@@ -312,3 +312,15 @@ num=$[ $num + 1 ]
 done
 echo the num is $num
 
+3.ping 某一个网段的ip 是否在线
+ 
+ #!/bin/bash
+ # DESC: Test the host is yes or no online
+ # AUTHOR: JURCHENS
+ # DATE : 2016/10/9
+ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~bin
+ export PATH
+ for i in `seq 1 254`
+  do
+    ping -c1 -w1 -i0.5 192.168.40.$i &>/dev/null && echo "192.168.40.$i is up" || echo "192.168.40.$i isdown"
+ done
