@@ -286,7 +286,7 @@ PAHT=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 file=/etc/passwd  # 定义一个变量file
 let num=0         # 用let 命令定义一个初始值为0的num
-for i in $file    # 使用for 循环，遍历/etc/passwd 目录
+for i in `cat $file`    # 使用for 循环，遍历/etc/passwd 目录
 do
   username=`echo "$i" | cut -f1 -d:`         # 使用cut 截取第一片段，用：做分隔符
   userid=`echo "$i" | cut -f3 -d:`           # 使用cut 截取第三片段，用：做分隔符
