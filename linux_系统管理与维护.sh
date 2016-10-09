@@ -273,3 +273,24 @@ echo "this result is $result"
   
 }
 注：因bash 只支持整数型运算，如果要进行字符串和浮点型运算，需要用系统的bc计算器
+
+
+SHELL 脚本实例练习
+1.向/etc/passwd 目录下的用户询问，并统计用户数
+
+#!/bin/bash
+DESC:Say hello to every user in the /etc/passwd directory, and count the number of the users
+AUTHOR: JURCHENS
+DATE:2016/10/9
+PAHT=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+file=/etc/passwd  # 定义一个变量file
+let num=0         # 用let 命令定义一个初始值为0的num
+for i in $file    # 使用for 循环，遍历/etc/passwd 目录
+do
+  username=`echo "$i" | cut -f1 -d:`         # 使用cut 截取第一片段，用：做分隔符
+  userid=`echo "$i" | cut -f3 -d:`           # 使用cut 截取第三片段，用：做分隔符
+echo "hello ,$username,your id is $userid"
+num=$[ $num + 1 ]                            # 遍历完一个用户后，加 1
+done
+echo the number of user is $num.
