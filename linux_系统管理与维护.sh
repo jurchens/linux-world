@@ -320,7 +320,7 @@ echo the num is $num
  # DATE : 2016/10/9
  PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~bin
  export PATH
- for i in `seq 1 254`
+ for i in `seq 1 254` # seq 列出1-254之间的数，等价于$(seq 1 254)
   do
-     ping -c1 -w1 -i0.5 192.168.40.$i &>/dev/null && echo "192.168.40.$i is up" || echo "192.168.40.$i is down"
+     ping -c1 -w1 -i0.5 192.168.40.$i &>/dev/null && echo "192.168.40.$i is up" || echo "192.168.40.$i is down" # -c1 指定返回次数1次，-w1 制定deadtime or timeout 为1s, -i0.5 指定时间间隔为0.5s
  done
