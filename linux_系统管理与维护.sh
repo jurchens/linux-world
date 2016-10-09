@@ -279,9 +279,9 @@ SHELL 脚本实例练习
 1.向/etc/passwd 目录下的用户询问，并统计用户数
 
 #!/bin/bash
-DESC:Say hello to every user in the /etc/passwd directory, and count the number of the users
-AUTHOR: JURCHENS
-DATE:2016/10/9
+# DESC:Say hello to every user in the /etc/passwd directory, and count the number of the users
+# AUTHOR: JURCHENS
+# DATE:2016/10/9
 PAHT=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 file=/etc/passwd  # 定义一个变量file
