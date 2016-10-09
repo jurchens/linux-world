@@ -298,7 +298,7 @@ echo the number of user is $num.
 2.使用for 循环，询问/var 目录下文件，并统计文件数
 
 #!/bin/bash
-# DESC: Say hell to every file in the /var directory ,and count the num of file
+# DESC: Say hello to every file in the /var directory ,and count the num of file
 # AUTHOR: JURCHENS
 # DATE: 2016/10/9
 PATH=/bin:/sbin:usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
