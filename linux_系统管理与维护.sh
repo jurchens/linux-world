@@ -294,3 +294,21 @@ echo "hello ,$username,your id is $userid"
 num=$[ $num + 1 ]                            # 遍历完一个用户后，加 1
 done
 echo the number of user is $num.
+
+2.使用for 循环，询问/var 目录下文件，并统计文件数
+
+#!/bin/bash
+# DESC: Say hell to every file in the /var directory ,and count the num of file
+# AUTHOR: JURCHENS
+# DATE: 2016/10/9
+PATH=/bin:/sbin:usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+cd /var
+let num=0
+for i in `ls /var/*`
+do
+echo "hello ,$i"
+num=$[ $num + 1 ]
+done
+echo the num is $num
+
