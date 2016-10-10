@@ -324,3 +324,19 @@ echo the num is $num
   do
      ping -c1 -w1 -i0.5 192.168.40.$i &>/dev/null && echo "192.168.40.$i is up" || echo "192.168.40.$i is down" # -c1 指定返回次数1次，-w1 制定deadtime or timeout 为1s, -i0.5 指定时间间隔为0.5s
  done
+
+4.传递两个参数进行四则运算
+
+  #!/bin/bash
+  # DESC: Pass two parameters, the calculation of the four numbers of the two operations
+  # AUTHOR: JURCHENS
+  # DATE: 2016/10/10
+  PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+  export PATH
+  echo "the first number is $1"
+  echo "the second number is $2"
+  echo "$(($1+$2))"
+  echo "$[ $1 - $2 ]"
+  echo "$[ $1 * $2 ]"
+  echo "$[ $1 / $2 ]"
+  # ./test.sh 2 3
