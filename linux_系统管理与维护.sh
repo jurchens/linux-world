@@ -358,3 +358,34 @@ echo the num is $num
 
 
   # ./test.sh 2 3
+
+
+6.列出目录和文件
+ 
+  #!/bin/bash
+  # DESC: list the file and directory
+  # AUTHOR: JURCHENS
+  # DATE: 2016/10/10
+  PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+  export PATH
+  date +%Y-%m-%d-%X
+  mkdir -p /tmp/lstest
+  cd /tmp/lstest
+  mkdir a1d b56e 6test
+  touch xy x3y 732
+  ls [ax6]*
+  ls [[:alpha:]][[:digit:]]*
+
+7.添加多个用户，若用户存在，不添加
+
+  #!/bin/bash
+  # DESC: Add 10 uers ,if user is exist ,not add it
+  # AUTHOR: JURCHENS
+  # DATE: 2016/10/10
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+   export PATH
+   for i in `seq 1 10`
+   do
+    cut -f1 -d: /etc/passwd |grep "user$i" || useradd user$i
+
+
