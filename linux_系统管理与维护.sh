@@ -339,4 +339,22 @@ echo the num is $num
   echo "$[ $1 - $2 ]"
   echo "$[ $1 * $2 ]"
   echo "$[ $1 / $2 ]"
+  
+
+5.修改目录所有者和权限
+  
+  #!/bin/bash
+  # DESC: change the ower and permissions for the directory
+  # AUTHOR: JURCHENS
+  # DATE: 2016/10/10
+  
+  PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+  export PATH
+  mkdir -p /tmp/scripts
+  cd  /tmp/scripts
+  cp /etc/pam.d ./test
+  chown -R RedHat ./test
+  chmod o=--- ./test
+
+
   # ./test.sh 2 3
