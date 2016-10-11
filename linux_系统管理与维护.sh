@@ -490,6 +490,27 @@ echo the num is $num
      fi
      exit=0
 
+14.判断文件路径
+   #!/bin/bash
+# DESC: determition the url of file
+# AUTHOR: JURCHENS
+# DATE: 2016/10/11
+  PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+  export PATH
+  if [ -d /data/test/aaa ]
+  then
+      echo "find the aaa"
+        if [ -d /data/test/bbb ]
+        then 
+           echo "find the bbb"
+        else
+           echo "no find the bbb"
+        fi
+
+  else
+      echo "no find the aaa"
+  fi
+
 
    
 
