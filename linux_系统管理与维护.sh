@@ -422,13 +422,33 @@ echo the num is $num
    if [ -d $1 ]
    then
      echo "the directory $1 is existed"
-  else
+   else
      echo "the directory $1 is not existed, and create it"
      mkdir -p /tmp/$1
      echo "the create directory is $1"
-  fi
+   fi
     # ./para.sh a
 
-
+11.创建50 个目录，并且并每个目录赋予相关权限
+   
+   #!/bin/bash
+   # DESC: create 50 directories ,and give permissions.
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/11
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+   export PATH
+   i=1                            #定义变量i
+   while [ $i -le 50 ]            #用while循环用户数
+   do
+    if [ -d /usrdata ]            # 判断/usrdata 目录是否存在
+     then
+       mkdir -p /usrdata/user$i   # 无论存在与否，都建子目录
+    else
+       mkdir /usrdata             # 不存在就新建目录 
+       mkdir -p /usrdata/user$1   # 不存在就新建子目录
+     fi
+    chmod 755 /usrdata/user$1     # 赋予权限
+    i=$(($i+1))                   # 变量循环  
+    done
 
 
