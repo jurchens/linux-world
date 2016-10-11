@@ -461,3 +461,34 @@ echo the num is $num
    */5 * * * *  /usr/sbin/ntpdate time.nist.gov >/dev/null 2>&1
    #crontab test.cron  # 执行，提及到达守护进程
 
+13.验证用户合法性
+   
+   #!/bin/bash
+   # DESC: determition the valid of the user
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/11
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/bin:~/bin
+   export PATH
+   isvalidAlphaNum()
+   {
+    compressed="$(echo $1 |sed 's/[^[:alnum:]]//g')"
+    if [$compressed != $1 ]
+    then
+        return 1
+    else
+        return 0
+    fi
+    echo -n "Enter input:"
+    read input
+    if ! isvalidAlphaNum "&input"
+    then
+        echo "invalid"
+        exit=1
+    else
+       echo "valid"
+     fi
+     exit=0
+
+
+   }
+
