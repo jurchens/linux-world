@@ -451,4 +451,13 @@ echo the num is $num
     i=$(($i+1))                   # 变量循环  
     done
 
+12.使用vim 创建计划任务
+   #!/bin/bash
+   # DESC: use vim editor create crontab 
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/11
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+   export PATH
+   */5 * * * *  /usr/sbin/ntpdate time.nist.gov >/dev/null 2>&1
+   #crontab test.cron  # 执行，提及到达守护进程
 
