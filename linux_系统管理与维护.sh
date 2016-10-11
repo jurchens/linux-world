@@ -388,4 +388,30 @@ echo the num is $num
    do
     cut -f1 -d: /etc/passwd |grep "user$i" 2>>/tmp/err || useradd user$i
 
+8.显示当前日期
+  
+   #!/bin/bash
+   # DESC: display the current date
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/11
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/lcoal/bin:/usr/local/sbin:~/bin
+   export PATH
+   echo "the current is `date +%Y-%m-%d-%X`"
+
+9.显示文件名和位置参数
+   #!/bin/bash
+   # DESC: Display the file name ,and display the location parameter
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/11
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+   export PATH
+   ehco "the first pragram is $0"
+   echo " the parameter is $1 $2 $3"
+   echo "the pragram is exit"
+   e
+		
+
+
+
+
 
