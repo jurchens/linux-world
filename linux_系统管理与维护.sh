@@ -411,6 +411,22 @@ echo the num is $num
    # ./tesh.sh a b c
 		
 
+10.判断并显示位置参数
+   #!/bin/bash
+   # DESC: 	determine and dispaly the parameters
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/11
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+   export PATH
+   
+   if [ -d $1 ]
+   then
+     echo "the directory $1 is existed"
+  else
+     echo "the directory $1 is not existed, and create it"
+   mkdir -p /tmp/$1
+  echo "the create directory is $1"
+
 
 
 
