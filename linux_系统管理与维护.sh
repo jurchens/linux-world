@@ -424,9 +424,10 @@ echo the num is $num
      echo "the directory $1 is existed"
   else
      echo "the directory $1 is not existed, and create it"
-   mkdir -p /tmp/$1
-  echo "the create directory is $1"
-
+     mkdir -p /tmp/$1
+     echo "the create directory is $1"
+  fi
+    # ./para.sh a
 
 
 
