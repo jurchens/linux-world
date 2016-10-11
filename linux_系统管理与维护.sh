@@ -386,6 +386,6 @@ echo the num is $num
    export PATH
    for i in `seq 1 10`
    do
-    cut -f1 -d: /etc/passwd |grep "user$i" || useradd user$i
+    cut -f1 -d: /etc/passwd |grep "user$i" 2>>/tmp/err || useradd user$i
 
 
