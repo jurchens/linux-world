@@ -478,6 +478,7 @@ echo the num is $num
     else
         return 0
     fi
+   }
     echo -n "Enter input:"
     read input
     if ! isvalidAlphaNum "&input"
@@ -490,5 +491,5 @@ echo the num is $num
      exit=0
 
 
-   }
+   
 
