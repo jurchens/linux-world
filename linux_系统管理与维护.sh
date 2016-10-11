@@ -408,7 +408,7 @@ echo the num is $num
    ehco "the first pragram is $0"
    echo " the parameter is $1 $2 $3"
    echo "the pragram is exit"
-   e
+   # ./tesh.sh a b c
 		
 
 
