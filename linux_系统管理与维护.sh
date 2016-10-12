@@ -204,7 +204,15 @@
   5.生成缓存： yum clean all   yum makecache
   6.完成 
   
-  
+3.编译安装
+   ./configure --help                 # 查看help参数 
+   ./configure --prefix=/usr/local    # 配置安装路径
+   make                               # 编译
+   make install                       # 安装  
+   make clean                         # 清除编译结果
+   python file.py                     # python 程序编译
+   gcc -g hello.c -o hello            # c程序编译
+
    
 四.系统监控
    top                                # 查看当前系统运行状态，包括cpu负载 ,mem使用，及进程等，如果cpu是多核，按1具体核数及显示情况
