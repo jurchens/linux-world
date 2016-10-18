@@ -519,6 +519,24 @@ echo the num is $num
       echo "no find the aaa"
   fi
 
-
+15.统计$PATH 文件数
+   #!/bin/bash
+   # DESC: Count the number of the files from the directory
+   # AUTHOR: JURCHENS
+   # DATE: 2016/10/18
+    
+   PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+   export PATH
+   mypath=`echo $PATH|sed 's/:/ /g'`
+   
+   for directory in $mypath
+   do
+     check=`ls $directory`
+      for term in $check
+      do
+        count=$[ $count + 1 ]
+       done
+      echo "directory - count"
+   done
    
 
