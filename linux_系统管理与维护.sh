@@ -539,4 +539,15 @@ echo the num is $num
       echo "directory - count"
    done
    
+16.验证电话号码
+
+
+ #!/bin/bash
+ # DESC: vertify the phone number
+ # AUTHOR: JURCHENS
+ # DATE: 2016/10/18
+ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/bin:/usr/local/sbin:~/bin
+ export PATH
+ awk --re-interval '/\(?[2-9][0-9]{2}\)?(| |-|\.)[0-9]{3}( |-|\.)[0=9]{4}/'
+ # ehco　＂345-456-4567＂ | ./phone.sh  
 
