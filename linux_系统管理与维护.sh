@@ -551,3 +551,9 @@ echo the num is $num
  awk --re-interval '/\(?[2-9][0-9]{2}\)?(| |-|\.)[0-9]{3}( |-|\.)[0=9]{4}/'
  # ehco　＂345-456-4567＂ | ./phone.sh  
 
+17.验证域名
+  #!/bin/bash
+  # DESC: vertify the domian number
+  # AUTHOR: JURCHENS
+  # DATE: 2016/10/18
+  awk --re-interval '/^([[[:alnum:]]_\-\.\+]+)@([[[:alnum:]]_\-\.]+)\.([[:alpha:]]{2,5})/{print $0}'/'
