@@ -268,8 +268,55 @@
        正则表达式匹配问题：
        echo "this is a line number 1" | sed -n '/ber 1/p'  #正则表达式可以匹配一个或多个空格
        echo "this is a     line number 1" |sed -n '/     /p' # 查看文本中空格的好办法
+
   
-      
+     2.sed 流编辑器
+       -n   # 阻止自动输出，只会打印受影响的行，通常和/p 配合使用
+       -i   # 直接对文档操作，会修改源文件
+       -e   # 输出多行命令使用
+       -f   # 通过制定文本形式，进行编辑
+        1）sed 的4种替换标记
+          a.数字，在第几行替换
+          b. g 表示全局替换
+          c. p 配合-n 使用，只打印受影响的行
+          d. w file 将替换的结果写入到文件
+       2）sed 替换特殊字符，例如常见的/ ,可用！代替
+         例如：将/etc/passwd/ 的/bin/bash 替换成 /bin/csh
+         sed 's!/bin/bash/!/bin/csh/!' /etc/passwd
+       3)sed 使用地址进行行编辑，需要用到行寻址，主要有2种方式实现：
+         a).指定行号，或行的数字范围
+         b).文本模式匹配，过滤出某行
+       4)sed 执行多条命令，除了用-e,还可以使用{} 
+       5）sed 删除行
+          sed 'd' file  # 如果不加寻址行的话，那么流中的文本行或被默认删除
+          sed '2d' fiel # 删除第二行，依次类推
+       6)sed 插入行，有两种插入方式，i表示行前插入，a 表示行后插入
+         sed 'i\' # 不指定行号，会在所有行的前面插入
+         sed 'a\' # 不指定行号，会在所有行的后面插入
+         sed '1i\this is a new line'
+         sed '$a\this is a last line'
+       7)sed 修改行
+          sed 'c\' # 不指定行号，会修改所有行
+       8）sed 转换命令，y 转换命令是唯一一个可以处理单个字符的sed编辑命令，格式：
+           [address]y/inchars/outchars
+          sed ’y/123/789‘ file
+       9) sed 打印行
+          1.打印行，用小写p 打印行
+            echo "hello" |sed 'p'
+          2.打印行号：用=号命令打印行号
+             sed '=' data1 |sed 'N;s/\n/ /'  # 打印行号，并将行号和文本在一行显示
+             sed '=' data1 |sed '/[[[:digit:]]]/{N;s/\n/ /}'
+             sed '=' data1 |sed '/.*/{N;s/\n/ /}'
+          3.l 列出行
+       10）sed 和文件一起工作
+           1.向文本写入
+            sed '2,3w test' data1 # 将data1 文件的2到3行 写入到test 文件里
+           2.从文件读取数据
+            sed '3r data5' data1 # 将data 5的所有数据读取出来插入到data1的第三行后面。
+            sed '$r data5' data1 # 将data 5 的所有数据读取出来插入到data1的最后一行
+
+   
+          
     
       
 
