@@ -140,8 +140,8 @@
   free -m                             # 查看剩余内存
 2.cpu
   cat /proc/cpuinfo |more             # 查看cpu详细信息
-  cat /proc/cpuinfo |grep "physical id" |sort -u | wc -l      #查看物理cpu 个数
-                                  
+  cat /proc/cpuinfo |grep "physical id" |sort -u | wc -l      # 查看物理cpu 个数
+  cat /proc/cpuinfi |grep "cpu cores" |wc -l                  # 查看cpu 逻辑核心数                             
   
 3.服务器
   dmidecode                           # 查看服务器全面信息
