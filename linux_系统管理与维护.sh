@@ -1,4 +1,5 @@
-＊＊＊＊＊特此说明：此文件收集整理并借鉴了雪松、PF等大神的文档shell实例手册，衷心感谢以上大神的无私奉献！＊＊＊＊＊
+＊
+＊＊＊特此说明：此文件收集整理并借鉴了雪松、PF等大神的文档shell实例手册，衷心感谢以上大神的无私奉献！＊＊＊＊＊
 一.系统
 1.查找命令
    a. which                           #查看执行的命令所在的位置，通常需要查找命令需要在环境变量里，例如/bin/sbin,查询速度较快
@@ -437,7 +438,7 @@ echo the num is $num
   export PATH
   echo "the first number is $1"
   echo "the second number is $2"
-  echo "$(($1+$2))"
+  echo "$(($1 + $2))"
   echo "$[ $1 - $2 ]"
   echo "$[ $1 * $2 ]"
   echo "$[ $1 / $2 ]"
