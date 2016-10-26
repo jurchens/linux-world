@@ -96,6 +96,8 @@
     setenforce 1                      # 临时设置force模式
 
 10.文件管理
+   cat                                # 查看文件
+   cat -n  == nl                      # 查看并显示行号，等价于 nl   
    touch                              # 新建一个文件，若文件存在，则修改时间，文件内容不覆盖
    touch -t file                      # 指定文件的修改时间
    ls                                 # 显示文件列表
