@@ -332,6 +332,7 @@
              sed '=' data1 |sed '/.*/{N;s/\n/ /}'
              awk '{print NR,$0}' file
           3.l 列出行
+              sed -n '3,5l' /etc/passwd      # 列出 /etc/passwd 的3到5行
        10）sed 和文件一起工作
            1.向文本写入
             sed '2,3w test' data1 # 将data1 文件的2到3行 写入到test 文件里
