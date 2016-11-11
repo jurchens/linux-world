@@ -13,6 +13,8 @@
          find / -mtime -n             # n天以内的文件，指的是n天内
          find / -user username        # 按文件所有者查找
          find / -size file            # 按文件大小查找 
+    e. type                           # 查看命令是否为shell内置命令
+         type ls    
 2.进程管理
     ps -efa                           # 查看所有进程
     ps -aux                           # 查看所有进程
