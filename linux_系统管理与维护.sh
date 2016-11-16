@@ -139,6 +139,24 @@
    tar -zxvf   file                   # 解压
    tar -zcvf   file.gz  file          # 压缩
    tar -zxvf file   -C 目录           # 解压到指定目录
+14.glibc升级
+   1. ll /lib64/libc.so.6             # 查看系统软连的glibc的版本
+   2. rmp -qa  |grep glibc            # 查看系统默认安装的glibc 版本
+   3. 升级glibc 
+   4. 下载 glibc-2.14.tar.gz 
+   5. tar -zxvf glibc-2.14.tar.gz
+   6. cd glibc-2.14
+   7. mkdir build
+   8. cd build
+   9. ../configure --prefix=/opt/glibc-2.14
+   10.  make && make install
+   11. rm -rf /lib64/libc.so.6        #删除系统原来的软链
+   12.DL_PRELOAD=/opt/glibc-2.14/bin/glibc-2.14.so  ln -s /opt/glibc-2.14/bin/glibc-2.14.so /lib64/libc.so.6
+   13.DL_PRELOAD=/lib64/libc-2.12.so  ln -s /lib64/libc-2.12.so /libc.so.6 # 如果更新失败，用此命令还原
+   14. getconf -a |grep glibc -i      # 确认升级是否成功
+
+q
+    
    
 二. 硬件相关
 1.内存
