@@ -388,13 +388,13 @@ q
             b        # 分支到脚本带有标记的地方，如果分支不存在，则跳转到脚本末尾
             t        # 判断分支，从最后一行开始，与b 函数不同在于t 在执行跳转前会先检查前一个替换命令是否成功
                        ，如果成功，则执行跳转
-        15 模式替换：
+        15) 模式替换：
            
            & ：用来替换命令中的匹配模式，不管预定义模式是什么文本，都能用& 代替
                echo "The cat is sleep in his hat " sed ’s/.at/&g‘
            sed 's/()/\1/' :替换单独的单词
            echo "The  furry cat is pretty" |sed 's/furry \(.at\)/\1/
-        16
+     
       
 
 git管理
@@ -728,3 +728,41 @@ echo the num is $num
   # AUTHOR: JURCHENS
   # DATE: 2016/10/18
   awk --re-interval '/^([[[:alnum:]]_\-\.\+]+)@([[[:alnum:]]_\-\.]+)\.([[:alpha:]]{2,5})/{print $0}'/'
+ 
+
+18.使用curl 下载网站上的图片
+
+  #!/bin/bash
+if [ $# -ne 3 ];then
+  echo "Usage: $0 URL -d DIRECTORY"
+  exit -1
+fi
+
+
+for i in {1..4}
+do
+   case $1 in
+   -d)
+      shift; directory=$1; shift
+    ;;
+
+   *)
+      url=${url:-$1};shift
+    ;;
+   esac
+done
+
+mkdir -p $directory
+baseurl=$(echo $url | egrep -o "https?://[a-z.]+")
+
+
+curl -s $url | egrep -o "<img src=[^>]*>" |sed 's/<img src=\"\([^"]*\).*/\1/g' > /tmp/$$.list
+sed -i "s|^/|$baseurl/|" /tmp/$$.list  #通过正则获取图片的url
+
+cd $directory
+
+while read filename                # while 循环
+do
+  curl -s -O "$filename" --silent  #  curl -O 下载并写入文件
+done < /tmp/$$.list                # 从 list 标准输入读取url
+
