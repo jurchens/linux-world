@@ -766,4 +766,4 @@ do
   curl -s -O "$filename" --silent  #  curl -O 下载并写入文件
 done < /tmp/$$.list                # 从 list 标准输入读取url
 
-testlllllll
+testlllllllfsadfsadfsadfas 
